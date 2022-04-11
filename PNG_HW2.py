@@ -19,8 +19,15 @@
 #     iterative_palindrome(12) -> false
 #     iterative_palindrome(2468642) -> true
 def iterative_palindrome(n):
-    #TODO
-    return
+    check = n
+    reversed = 0
+    while (n>0):
+        digit = n % 10
+        reversed = reversed*10+digit
+        n = n//10
+    if(check == reversed):
+        return True
+    return False
 
 # This function is the same as iterative_palindrome() except instead of using a
 # loop, implement the function in a recursive way.
@@ -37,8 +44,11 @@ def recurisve_palindrome(n):
 #     factorial(4) -> 24
 #     factorial(7) -> 5040
 def factorial(n):
-    #TODO
-    return
+    product = 1
+    while(n > 0):
+        product *= n
+        n =-1
+    return product
 
 # Helper function for sum_factorials(). Takes a number as an argument and returns
 # a boolean value of true or false that shows whether the inputted number is a 
@@ -47,8 +57,10 @@ def factorial(n):
 #     is_prime(12) -> false
 #     is_prime(23) -> true
 def is_prime(n):
-    #TODO
-    return
+    for i in range (2,n-1):
+        if (n %% i == 0):
+            return False
+    return True 
 
 # Function that creates a node to help testing of sum_factorials()
 class Node:

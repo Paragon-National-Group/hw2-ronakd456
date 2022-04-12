@@ -35,8 +35,13 @@ def iterative_palindrome(n):
 #     recursive_palindrome(12) -> false
 #     recursive_palindrome(2468642) -> true
 def recurisve_palindrome(n):
-    #TODO
-    return
+    temp = str(n)
+    if temp[0] != temp[-1]:
+        return False
+    recursive_palin = temp[1:-1]
+    if len(recursive_palin) <= 1:
+        return True
+    return recursive_palindrome(int(recursive_palin))
 
 # Helper function for sum_factorials(). Takes a number as an argument and returns
 # the factorial of that number.
@@ -47,7 +52,7 @@ def factorial(n):
     product = 1
     while(n > 0):
         product *= n
-        n =-1
+        n -= 1
     return product
 
 # Helper function for sum_factorials(). Takes a number as an argument and returns
@@ -57,7 +62,7 @@ def factorial(n):
 #     is_prime(12) -> false
 #     is_prime(23) -> true
 def is_prime(n):
-    for i in range (2,n-1):
+    for i in range (2, sqrt(n)):
         if (n %% i == 0):
             return False
     return True 
@@ -87,5 +92,12 @@ def push(head_ptr, new_content):
 #     lst = push(lst, 6)
 #     sum_factorials(lst) -> 128
 def sum_factorials(head_ptr):
-    #TODO
-    return
+    num = 0
+    curr_node = head_ptr
+    num += curr_node.content
+    
+    while curr_node.next is not None:
+        curr_node = curr_node.next
+        ret += curr_node.content
+        
+    return num
